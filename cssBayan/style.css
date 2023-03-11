@@ -1,9 +1,11 @@
+/* 
 
 p{
     margin: 0;
     font-size: 10px;
     font-weight: 500;
 }
+
 
 
 .accordion_block{
@@ -13,26 +15,33 @@ p{
     border-radius: 15px;
 }
 .accordion{
+    content: "";
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
     max-width: 500px;
     height: 50em;
     overflow: hidden;
     padding-top: 10px;
+    cursor: pointer;
+    
 }
+
 .bottomLine{
     content: "";
     border-bottom: 1px solid gray;
     padding-bottom: 3px;
 }
 
-.accordion_section1,
+.accordion_section,
 .accordion_content{
     padding: 20px 14px;
 }
 
 
-.accordion_section1{
+.accordion_section{
+    display: flex;
+    cursor: pointer;
+    width: 200px;
     font-size: 30px;
     font-weight: 900;
   
@@ -47,21 +56,104 @@ p{
 }
 
 
-.accordion_section1_img{
-    content: "";
-    position:absolute;
-    transform: translateY(-50);
-    top:4%;
-    right: 750px;
-    width: 50px;
-    height: 50px;
-    background-image: url(https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/shape_triangle.png);
-    background-size: contain;
-    transition: transform 0.4s;
-    display: none;
-}
-.accordion_section1:hover ~ .accordion_section1_img {
-   display: block;
+.accordion_input:hover ~ .accordion_content{
+    display: block;
+
 }
 
+
+.accordion_section::after{
+    content: "";
+    position: absolute;
+    right: 500px;
+    width: 20px;
+    height: 20px;
+    background-image: url(http://ikonki.svgpng.ru/wp-content/uploads/2021/12/Krestiksvgpng.ru_.png);
+    background-size: contain;
+    transition: transform 0.4s;
     
+}
+
+.accordion:hover .accordion_section::after {
+    display: block;
+}
+
+ */
+
+/* Изменение первой секции*/ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+}
+
+.container{
+    background-color: #f5f5eb;
+    padding-bottom: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.acContainer{
+    width: 300px;
+}
+.container section {
+    width: 300px;
+    margin: 5px;
+    color: blue;
+    
+}
+
+.container section details summary{
+    padding: 15px;
+    background-color: #6565;
+    position: relative;
+    list-style: none;
+    outline: none;
+    cursor: pointer;
+    
+}
+
+.container section details p{
+    padding: 10px;
+    font-size: 15px;
+    background-color: antiquewhite;
+}
+
+.container section details summary::after{
+    content: '';
+    width: 25px;
+    height: 20px;
+    background-size: contain;
+    background-image: url(http://ikonki.svgpng.ru/wp-content/uploads/2021/12/Krestiksvgpng.ru_.png);
+    position: absolute;
+    right: 10px; top: 12px;
+    cursor: pointer;
+    transition: .2s;
+    display: none;   
+}
+
+.acContainer:hover summary::after{
+    display: block;
+    
+    
+} 
+.acContainer:hover section{
+    color: black;
+       
+}
+
+.container section details[open] summary::after{
+transform: rotate(135deg);
+
+
+    
+}
+.container section details[open] {
+    color: black;
+}
