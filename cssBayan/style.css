@@ -3,13 +3,15 @@
   margin: 0 auto;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
-  font-size: large;
   max-width: 400px;
   padding: 15px 15px;
   border-radius: 15px;
   color: chocolate;
 }
-
+.accordion_head {
+  display: flex;
+  justify-content: space-between;
+}
 .accordion p {
   font-size: medium;
   font-weight: 500;
@@ -19,9 +21,12 @@
 .accordion_input {
   display: none;
 }
+.accordion_panel img {
+  width: 50%;
+}
 
 .accordion_input:hover ~ .accordion_content {
-  max-height: 1000px;
+  max-height: 100vh;
   transition: all 2s;
 }
 
@@ -30,52 +35,47 @@
   overflow: hidden;
   padding: 0px 15px;
   margin-bottom: 10px;
-  transition: all .5s;
+  transition: all 0.5s;
 }
-.accordion_label
-{
-    display: block;
-    position: relative;
-    padding: 15px 10px 0px 0px;
- 
-  
+.accordion_label {
+  width: 20px;
+  display: flex;
+  position: relative;
+  padding: 15px 10px 0px 0px;
 }
 
-.accordion_label::after {
-    content: "+";
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    right: 15px;
-    top: 30%;
-    transition: .5s;
-    display: none;
-
+.accordion_panel {
+  width: 350px;
+  margin: 0 auto;
+}
+.accordion_panel .bottom_line {
+  display: flex;
+  content: "";
+  height: 1px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-bottom: 10px;
 }
 
-.accordion_input:hover ~ .accordion_label::after{
-
-    transform: rotate(45deg);
-    transition: .5s;
-}
-.accordion_panel{
-    width: 350px;
-    margin: 0 auto;
-}
-.accordion_panel .bottom_line{
-    content: "";
-    height: 1px;
-    border-bottom: 1px solid gray;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    margin-bottom: 10px;
+.accordion:hover .accordion_panel {
+  color: black;
 }
 
-.accordion:hover .accordion_panel{
-    color: black;
-}
-.accordion:hover .accordion_label::after{
-    display: block;
+.right_icon {
+  display: none;
 }
 
+.accordion:hover .right_icon {
+  display: block;
+}
+
+label:hover .right_icon {
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+.accordion_input:checked ~ .accordion_content {
+  max-height: 100vh;
+}
 
