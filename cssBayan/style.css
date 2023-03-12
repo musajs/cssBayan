@@ -1,159 +1,81 @@
-/* 
-
-p{
-    margin: 0;
-    font-size: 10px;
-    font-weight: 500;
+.accordion {
+  background-color: antiquewhite;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: large;
+  max-width: 400px;
+  padding: 15px 15px;
+  border-radius: 15px;
+  color: chocolate;
 }
 
-
-
-.accordion_block{
-    max-width: 600px;
-    background-color: #f5f5eb;
-    margin: 0 auto;
-    border-radius: 15px;
-}
-.accordion{
-    content: "";
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0 auto;
-    max-width: 500px;
-    height: 50em;
-    overflow: hidden;
-    padding-top: 10px;
-    cursor: pointer;
-    
+.accordion p {
+  font-size: medium;
+  font-weight: 500;
+  margin: 0;
 }
 
-.bottomLine{
-    content: "";
-    border-bottom: 1px solid gray;
-    padding-bottom: 3px;
+.accordion_input {
+  display: none;
 }
 
-.accordion_section,
-.accordion_content{
-    padding: 20px 14px;
+.accordion_input:hover ~ .accordion_content {
+  max-height: 1000px;
+  transition: all 2s;
 }
 
-
-.accordion_section{
-    display: flex;
-    cursor: pointer;
-    width: 200px;
-    font-size: 30px;
-    font-weight: 900;
+.accordion_content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0px 15px;
+  margin-bottom: 10px;
+  transition: all .5s;
+}
+.accordion_label
+{
+    display: block;
+    position: relative;
+    padding: 15px 10px 0px 0px;
+ 
   
 }
 
-.accordion_content{
-    display: none;
-}
-
-.accordion_input{
-    display: none;
-}
-
-
-.accordion_input:hover ~ .accordion_content{
-    display: block;
-
-}
-
-
-.accordion_section::after{
-    content: "";
-    position: absolute;
-    right: 500px;
-    width: 20px;
-    height: 20px;
-    background-image: url(http://ikonki.svgpng.ru/wp-content/uploads/2021/12/Krestiksvgpng.ru_.png);
-    background-size: contain;
-    transition: transform 0.4s;
-    
-}
-
-.accordion:hover .accordion_section::after {
-    display: block;
-}
-
- */
-
-/* Изменение первой секции*/ 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: capitalize;
-}
-
-.container{
-    background-color: #f5f5eb;
-    padding-bottom: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.acContainer{
-    width: 300px;
-}
-.container section {
-    width: 300px;
-    margin: 5px;
-    color: blue;
-    
-}
-
-.container section details summary{
-    padding: 15px;
-    background-color: #6565;
-    position: relative;
-    list-style: none;
-    outline: none;
-    cursor: pointer;
-    
-}
-
-.container section details p{
-    padding: 10px;
-    font-size: 15px;
-    background-color: antiquewhite;
-}
-
-.container section details summary::after{
-    content: '';
+.accordion_label::after {
+    content: "+";
     width: 25px;
-    height: 20px;
-    background-size: contain;
-    background-image: url(http://ikonki.svgpng.ru/wp-content/uploads/2021/12/Krestiksvgpng.ru_.png);
+    height: 25px;
     position: absolute;
-    right: 10px; top: 12px;
-    cursor: pointer;
-    transition: .2s;
-    display: none;   
+    right: 15px;
+    top: 30%;
+    transition: .5s;
+    display: none;
+
 }
 
-.acContainer:hover summary::after{
+.accordion_input:hover ~ .accordion_label::after{
+
+    transform: rotate(45deg);
+    transition: .5s;
+}
+.accordion_panel{
+    width: 350px;
+    margin: 0 auto;
+}
+.accordion_panel .bottom_line{
+    content: "";
+    height: 1px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+
+.accordion:hover .accordion_panel{
+    color: black;
+}
+.accordion:hover .accordion_label::after{
     display: block;
-    
-    
-} 
-.acContainer:hover section{
-    color: black;
-       
 }
 
-.container section details[open] summary::after{
-transform: rotate(135deg);
 
-
-    
-}
-.container section details[open] {
-    color: black;
-}
